@@ -2,6 +2,10 @@
 #define COMPLEX_COMPLEX_H
 
 #include <iosfwd>
+#include <string>
+#include <istream>
+#include <ostream>
+#include <iostream>
 
 
 struct Complex {
@@ -9,9 +13,9 @@ struct Complex {
   double re{ 0.0 };   //вещественная часть комплексного числа
   double im{ 0.0 };   //мнимая часть комплексного числа
 
-  static const char leftBrace{ '{' };   // левая скобка 
-  static const char separator{ ',' };   // разделитель
-  static const char rightBrace{ '}' };  // правая скобка 
+  static const char lb{ '{' };   // левая скобка 
+  static const char sep{ ',' };   // разделитель
+  static const char rb{ '}' };  // правая скобка 
 	
   Complex() = default;
 
@@ -27,6 +31,18 @@ struct Complex {
 	  re = real;
 	  im = imaginary;
   }
+
+  std::string text = "Комплексные числа — это числа вида a + bi, где a и b — вещественные числа, а i — мнимая единица, то есть число, для которого выполняется равенство: i^2 = -1.\n"
+	  "Любое комплексное число z = a + bi включает в состав пару компонентов : a — вещественная составляющая числа z, b — мнимый компонент числа z.\n"
+	  "Множество комплексных чисел обычно обозначается символом C.\n"
+	  "Уникальные свойства комплексных чисел и функций нашли широкое применение для решения многих практических задач в различных областях математики, физики и техники :\n"
+	  "в обработке сигналов, теории управления, электромагнетизме, теории колебаний, теории упругости и многих других.\n";
+  std::string info() {
+	  return text;
+  }
+
+
+
 
   Complex& operator=(const Complex&) = default;
 
@@ -74,16 +90,23 @@ struct Complex {
   // Присваивающее деление на вещественное число.
   Complex& operator/=(const double rhs);
 
-  //Форматированный вывод в поток ostrm комплексного числа в виде {re,im}.
-  [[nodiscard]] std::ostream& WriteTo(std::ostream& ostrm) const noexcept;
-
-  //Форматированный ввод из потока istrm комплексного числа в виде {re,im}.
-  [[nodiscard]] std::istream& ReadFrom(std::istream& istrm) noexcept;
-
- 
-
- 
+  std::ostream& writeTo(std::ostream& ostrm) const;
+  std::istream & readFrom(std::istream & istrm);
 };
+
+inline std::ostream& operator<<(std::ostream& ostrm, const Complex& rhs)
+{
+	return rhs.writeTo(ostrm);
+	}
+ inline std::istream & operator>>(std::istream & istrm, Complex & rhs)
+{
+	return rhs.readFrom(istrm);
+	}
+
+
+
+
+
 
 //Сложение комплексных чисел.
 [[nodiscard]] Complex operator+(const Complex& lhs, const Complex& rhs) noexcept;
@@ -116,14 +139,7 @@ struct Complex {
 // Деление вещественного числа на комплексное.
 [[nodiscard]] Complex operator/(const double lhs, const Complex& rhs);
 
-//Форматированный вввод в поток ostrm комплексного числа \se Complex::write_to.
-inline std::ostream& operator<<(std::ostream& ostrm, const Complex& rhs) noexcept {
-  return rhs.WriteTo(ostrm);
-}
 
-//Форматированный ввод из потока istrm комплексного числа \se Complex::read_from.
-inline std::istream& operator>>(std::istream& istrm, Complex& rhs) noexcept {
-  return rhs.ReadFrom(istrm);
-}
+
 
 #endif
