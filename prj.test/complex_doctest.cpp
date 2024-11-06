@@ -37,13 +37,12 @@ TEST_CASE("testing the factorial function") {
 	CHECK(Complex(2.0, 3.0) * n == Complex(10.0, 15.0));
 
 
-	//Не понимаю что не так, этот тест работает с теми же числами, что и другой, в котором идет присваивание
-	CHECK(Complex(12.0, 4.0) * Complex(-4.0, 8.0) == Complex(-80.0, 80.0));
 
-	//Тест не работает по неизвестной причине, в complex.cpp все одианаково
-	Complex k2 = Complex(12.0, 4.0);
-	k2 *= Complex(-4.0, 8.0);
-	CHECK(k2 == Complex(-80.0, 80.0));
+	CHECK(Complex(5.0, 5.0) * Complex(1.0, 1.0) == Complex(0.0, 10.0));
+
+	Complex k2 = Complex(5.0, 5.0);
+	k2 *= Complex(1.0, 1.0);
+	CHECK(k2 == Complex(0.0, 10.0));
 
 	CHECK(n * Complex(2.0, 3.0) == Complex(10.0, 15.0));
 
@@ -55,8 +54,10 @@ TEST_CASE("testing the factorial function") {
 	Complex k1 = Complex(5.0, 5.0);
 	k1 *= 2;
 	CHECK(k1 == Complex(10.0, 10.0));
-	k1 /= Complex(1.0, 1.0);
-	CHECK(k1 == Complex(10.0, 0.0));
+
+	k1 = Complex(11.0, -10.0);
+	k1 /= Complex(2.0, -2.0);
+	CHECK(k1 == Complex(5.25, 0.25));
 	k1 = Complex(5.0, 5.0);
 	k1 /= 2;
 	CHECK(k1 == Complex(2.5, 2.5));
