@@ -28,8 +28,9 @@ Complex& Complex::operator-=(const double rhs) noexcept {
 
 //Формула: (a+bi)(c+di) = (ac-bd) + (ad+bc)i
 Complex& Complex::operator*=(const Complex& rhs) noexcept {  
+	double r1 = re;
 	re = re * rhs.re - im * rhs.im;
-	im = re * rhs.im + im * rhs.re;
+	im = r1 * rhs.im + im * rhs.re;
 	return *this;
 	}
 Complex& Complex::operator*=(const double rhs) noexcept { 
@@ -37,10 +38,11 @@ Complex& Complex::operator*=(const double rhs) noexcept {
 	im *= rhs;
 	return *this; }
 
-
+//Формула: z1/z2 = a+bi/c+di=(ac+bd)/(c**2+d**2) + (bc-ad)/(c**2+d**2) * i
 Complex& Complex::operator/=(const Complex& del) { 
+	double re1 = re;
 	re = (re * del.re + im * del.im) / (del.re * del.re + del.im * del.im);
-	im = (im * del.re - re * del.im) / (del.re * del.re + del.im * del.im);
+	im = (im * del.re - re1 * del.im) / (del.re * del.re + del.im * del.im);
 	return *this;}
 Complex& Complex::operator/=(const double rhs) { 
 	re /= rhs;
