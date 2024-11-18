@@ -22,12 +22,12 @@ D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/docte
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe.exe
 2/4 Test #4: doctest_rational_io ..............***Not Run   0.00 sec
-3/4 Test #1: doctest_complex ..................***Failed    0.01 sec
-4/4 Test #2: doctest_complex_io ...............   Passed    0.01 sec
+3/4 Test #2: doctest_complex_io ...............   Passed    0.01 sec
+4/4 Test #1: doctest_complex ..................***Failed    0.01 sec
 
 25% tests passed, 3 tests failed out of 4
 
-Total Test time (real) =   0.01 sec
+Total Test time (real) =   0.02 sec
 
 The following tests FAILED:
 	  1 - doctest_complex (Failed)
