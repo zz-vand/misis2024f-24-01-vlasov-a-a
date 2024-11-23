@@ -37,7 +37,7 @@ Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctes
 
 20% tests passed, 4 tests failed out of 5
 
-Total Test time (real) =   0.02 sec
+Total Test time (real) =   0.01 sec
 
 The following tests FAILED:
 	  1 - doctest_arrayd (Not Run)
