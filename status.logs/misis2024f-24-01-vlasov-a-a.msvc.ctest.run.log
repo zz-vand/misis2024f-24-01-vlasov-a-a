@@ -32,12 +32,12 @@ D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctes
 Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe
 Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe.exe
 3/5 Test #5: doctest_rational_io ..............***Not Run   0.00 sec
-4/5 Test #2: doctest_complex ..................***Failed    0.01 sec
-5/5 Test #3: doctest_complex_io ...............   Passed    0.01 sec
+4/5 Test #2: doctest_complex ..................***Failed    0.31 sec
+5/5 Test #3: doctest_complex_io ...............   Passed    0.19 sec
 
 20% tests passed, 4 tests failed out of 5
 
-Total Test time (real) =   0.01 sec
+Total Test time (real) =   0.41 sec
 
 The following tests FAILED:
 	  1 - doctest_arrayd (Not Run)
