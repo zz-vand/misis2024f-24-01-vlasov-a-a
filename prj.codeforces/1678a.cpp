@@ -26,6 +26,7 @@ int main() {
             if (arr[i] == 0) {
                 num_0 += 1;
             }
+        }
 
         if (num_0 > 0) {
             std::cout << n - num_0 << std::endl;
