@@ -9,10 +9,20 @@ D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctes
 D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_arrayd.exe.exe
 Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayd.exe
 Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayd.exe.exe
-1/5 Test #1: doctest_arrayd ...................***Not Run   0.00 sec
-    Start 2: doctest_complex
-    Start 3: doctest_complex_io
-    Start 4: doctest_rational
+1/6 Test #1: doctest_arrayd ...................***Not Run   0.00 sec
+    Start 2: doctest_arrayt
+Could not find executable D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe
+Looked in the following places:
+D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe
+D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe.exe
+D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_arrayt.exe
+D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_arrayt.exe.exe
+Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe
+Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe.exe
+2/6 Test #2: doctest_arrayt ...................***Not Run   0.00 sec
+    Start 3: doctest_complex
+    Start 4: doctest_complex_io
+    Start 5: doctest_rational
 Could not find executable D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational.exe
 Looked in the following places:
 D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational.exe
@@ -21,8 +31,8 @@ D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctes
 D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_rational.exe.exe
 Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational.exe
 Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational.exe.exe
-2/5 Test #4: doctest_rational .................***Not Run   0.00 sec
-    Start 5: doctest_rational_io
+3/6 Test #5: doctest_rational .................***Not Run   0.00 sec
+    Start 6: doctest_rational_io
 Could not find executable D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe
 Looked in the following places:
 D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe
@@ -31,16 +41,17 @@ D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctes
 D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_rational_io.exe.exe
 Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe
 Release/D:/projects/2024-misis-fall/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe.exe
-3/5 Test #5: doctest_rational_io ..............***Not Run   0.00 sec
-4/5 Test #2: doctest_complex ..................***Failed    0.31 sec
-5/5 Test #3: doctest_complex_io ...............   Passed    0.19 sec
+4/6 Test #6: doctest_rational_io ..............***Not Run   0.00 sec
+5/6 Test #3: doctest_complex ..................***Failed    0.01 sec
+6/6 Test #4: doctest_complex_io ...............   Passed    0.01 sec
 
-20% tests passed, 4 tests failed out of 5
+17% tests passed, 5 tests failed out of 6
 
-Total Test time (real) =   0.41 sec
+Total Test time (real) =   0.02 sec
 
 The following tests FAILED:
 	  1 - doctest_arrayd (Not Run)
-	  2 - doctest_complex (Failed)
-	  4 - doctest_rational (Not Run)
-	  5 - doctest_rational_io (Not Run)
+	  2 - doctest_arrayt (Not Run)
+	  3 - doctest_complex (Failed)
+	  5 - doctest_rational (Not Run)
+	  6 - doctest_rational_io (Not Run)
