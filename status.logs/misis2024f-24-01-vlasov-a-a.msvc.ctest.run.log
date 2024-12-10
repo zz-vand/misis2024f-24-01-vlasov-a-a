@@ -9,7 +9,7 @@ D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/docte
 D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_arrayd.exe.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayd.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayd.exe.exe
-1/6 Test #1: doctest_arrayd ...................***Not Run   0.00 sec
+1/8 Test #1: doctest_arrayd ...................***Not Run   0.00 sec
     Start 2: doctest_arrayt
 Could not find executable D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe
 Looked in the following places:
@@ -19,7 +19,7 @@ D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/docte
 D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_arrayt.exe.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe.exe
-2/6 Test #2: doctest_arrayt ...................***Not Run   0.00 sec
+2/8 Test #2: doctest_arrayt ...................***Not Run   0.00 sec
     Start 3: doctest_complex
     Start 4: doctest_complex_io
     Start 5: doctest_rational
@@ -31,7 +31,7 @@ D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/docte
 D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_rational.exe.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational.exe.exe
-3/6 Test #5: doctest_rational .................***Not Run   0.00 sec
+3/8 Test #5: doctest_rational .................***Not Run   0.00 sec
     Start 6: doctest_rational_io
 Could not find executable D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe
 Looked in the following places:
@@ -41,13 +41,33 @@ D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/docte
 D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_rational_io.exe.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe.exe
-4/6 Test #6: doctest_rational_io ..............***Not Run   0.00 sec
-5/6 Test #3: doctest_complex ..................***Failed    0.01 sec
-6/6 Test #4: doctest_complex_io ...............   Passed    0.01 sec
+4/8 Test #6: doctest_rational_io ..............***Not Run   0.00 sec
+    Start 7: doctest_queuea
+Could not find executable D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_queuea.exe
+Looked in the following places:
+D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_queuea.exe
+D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_queuea.exe.exe
+D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_queuea.exe
+D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_queuea.exe.exe
+Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_queuea.exe
+Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_queuea.exe.exe
+5/8 Test #7: doctest_queuea ...................***Not Run   0.00 sec
+    Start 8: doctest_stackl
+Could not find executable D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_stackl.exe
+Looked in the following places:
+D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_stackl.exe
+D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_stackl.exe.exe
+D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_stackl.exe
+D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/doctest_stackl.exe.exe
+Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_stackl.exe
+Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_stackl.exe.exe
+6/8 Test #8: doctest_stackl ...................***Not Run   0.00 sec
+7/8 Test #3: doctest_complex ..................***Failed    0.02 sec
+8/8 Test #4: doctest_complex_io ...............   Passed    0.01 sec
 
-17% tests passed, 5 tests failed out of 6
+13% tests passed, 7 tests failed out of 8
 
-Total Test time (real) =   0.02 sec
+Total Test time (real) =   0.03 sec
 
 The following tests FAILED:
 	  1 - doctest_arrayd (Not Run)
@@ -55,3 +75,5 @@ The following tests FAILED:
 	  3 - doctest_complex (Failed)
 	  5 - doctest_rational (Not Run)
 	  6 - doctest_rational_io (Not Run)
+	  7 - doctest_queuea (Not Run)
+	  8 - doctest_stackl (Not Run)

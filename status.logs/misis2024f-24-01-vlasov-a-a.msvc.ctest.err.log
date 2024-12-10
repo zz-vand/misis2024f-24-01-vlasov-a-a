@@ -2,6 +2,8 @@ Unable to find executable: D:/projects/misis2024f-check/misis2024f-24-01-vlasov-
 Unable to find executable: D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_arrayt.exe
 Unable to find executable: D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational.exe
 Unable to find executable: D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_rational_io.exe
+Unable to find executable: D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_queuea.exe
+Unable to find executable: D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_stackl.exe
 Errors while running CTest
 Output from these tests are in: D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/build.check/Testing/Temporary/LastTest.log
 Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.
