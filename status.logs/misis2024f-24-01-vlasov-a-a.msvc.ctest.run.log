@@ -62,12 +62,12 @@ D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/Release/docte
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_stackl.exe
 Release/D:/projects/misis2024f-check/misis2024f-24-01-vlasov-a-a/bin.check/doctest_stackl.exe.exe
 6/8 Test #8: doctest_stackl ...................***Not Run   0.00 sec
-7/8 Test #3: doctest_complex ..................***Failed    0.02 sec
+7/8 Test #3: doctest_complex ..................***Failed    0.01 sec
 8/8 Test #4: doctest_complex_io ...............   Passed    0.01 sec
 
 13% tests passed, 7 tests failed out of 8
 
-Total Test time (real) =   0.03 sec
+Total Test time (real) =   0.02 sec
 
 The following tests FAILED:
 	  1 - doctest_arrayd (Not Run)
