@@ -1,133 +1,140 @@
-
-#include <queuea.hpp>
-
-#include <algorithm>
+#include "queuea/queuea.hpp"
 #include <stdexcept>
+#include <algorithm>
+#include <cstring>
 
-std::ptrdiff_t QueueA::Count() const {
-  return IsEmpty() ? 0 : (tail_ + size_ - head_) % size_ + 1;
-}
-
-QueueA& QueueA::operator=(const QueueA& src) {
-  if (this != &src) {
-    std::ptrdiff_t count = src.Count();
-    if (0 == count) {
-      head_ = -1;
-    } else {
-      if (size_ < count) {
-        size_ = (count + 4) / 4 * 4;
-        delete[] data_;
-        data_ = new T[size_];
-      }
-      if (src.head_ < src.tail_) {
-        std::copy(src.data_ + src.head_, src.data_ + src.tail_ + 1, data_);
-      }
-      else {
-        std::copy(src.data_ + src.head_, src.data_ + src.size_, data_);
-        std::copy(src.data_, src.data_ + src.tail_ + 1, data_ + src.size_ - src.head_);
-      }
-    head_ = 0;
-      tail_ = count - 1;
+QueueA::QueueA(const QueueA& src)
+    : size_(src.size_), head_(src.head_), tail_(src.tail_), capacity_(src.capacity_) {
+    if (capacity_ > 0) {
+        data_ = new T[capacity_];
+        std::copy(src.data_, src.data_ + capacity_, data_);
     }
-  }
-  return *this;
-}
-
-QueueA::QueueA(const QueueA& src) {
-  if (!src.IsEmpty()) {
-    std::ptrdiff_t count = src.Count();
-    head_ = 0;
-    tail_ = count - 1;
-    size_ = (count + 4) / 4 * 4;
-    data_ = new T[size_];
-    if (src.head_ < src.tail_) {
-       std::copy(src.data_ + src.head_, src.data_ + src.tail_ + 1, data_);
-    } else {
-       std::copy(src.data_ + src.head_, src.data_ + src.size_, data_);
-       std::copy(src.data_, src.data_ + src.tail_ + 1, data_ + src.size_ - src.head_);
+    else {
+        data_ = nullptr;
     }
-  }
 }
 
-void QueueA::Swap(QueueA&& src) noexcept {
-  std::swap(size_, src.size_);
-  std::swap(data_, src.data_);
-  std::swap(head_, src.head_);
-  std::swap(tail_, src.tail_);
-}
-
-QueueA::QueueA(QueueA&& src) noexcept {
-  Swap(std::move(src));
-}
-
-QueueA& QueueA::operator=(QueueA&& src) {
-  if (this != &src) {
-    Swap(std::move(src));
-  }
-  return *this;
+QueueA::QueueA(QueueA&& src) noexcept
+    : size_(src.size_), head_(src.head_), tail_(src.tail_), capacity_(src.capacity_), data_(src.data_) {
+    src.data_ = nullptr;      
+    src.size_ = 0;
+    src.head_ = -1;
+    src.tail_ = -1;
+    src.capacity_ = 0;
 }
 
 QueueA::~QueueA() {
-  delete[] data_;
+    Clear();
+}
+
+QueueA& QueueA::operator=(const QueueA& src) {
+    if (this != &src) {
+        delete[] data_;  
+        size_ = src.size_;
+        head_ = src.head_;
+        tail_ = src.tail_;
+        capacity_ = src.capacity_;
+
+        if (capacity_ > 0) {
+            data_ = new T[capacity_];
+            std::copy(src.data_, src.data_ + capacity_, data_);
+        }
+        else {
+            data_ = nullptr;
+        }
+    }
+    return *this;
+}
+
+QueueA& QueueA::operator=(QueueA&& src) noexcept {
+    if (this != &src) {
+        delete[] data_;  
+        data_ = src.data_;
+        size_ = src.size_;
+        head_ = src.head_;
+        tail_ = src.tail_;
+        capacity_ = src.capacity_;
+
+        src.data_ = nullptr;          
+        src.size_ = 0;
+        src.head_ = -1;
+        src.tail_ = -1;
+        src.capacity_ = 0;
+    }
+    return *this;
 }
 
 bool QueueA::IsEmpty() const noexcept {
-  return head_ < 0;
+    return size_ == 0;
+}
+
+std::ptrdiff_t QueueA::Count() const {
+    return size_;
 }
 
 void QueueA::Pop() noexcept {
-  if (!IsEmpty()) {
-    if (head_ != tail_) {
-      head_ = (head_ + 1) % size_;
-    } else {
-      head_ = -1;
+    if (IsEmpty()) return;
+
+    head_ = (head_ + 1) % capacity_;
+    --size_;
+
+    if (IsEmpty()) {          
+        head_ = -1;
+        tail_ = -1;
     }
-  }
 }
 
 void QueueA::Push(const T val) {
-  if (nullptr == data_) {
-    size_ = 2;
-    data_ = new T[size_];
-  } 
-  if (IsEmpty()) {
-    head_ = 0;
-    tail_ = 0;
-  } else {
-    if (head_ == (tail_ + 1) % size_) {
-      // resize
-      T* buf = new T[size_ * 2];
-      std::swap(buf, data_);
-      if (head_ < tail_) {
-        std::copy(buf + head_, buf + tail_ + 1, data_);
-      } else {
-        std::copy(buf + head_, buf + size_, data_);
-        std::copy(buf, buf + tail_ + 1, data_ + tail_ - head_);
-      }
-      delete[] buf;
-      size_ *= 2;
-      tail_ = Count();
-    } else {
-      tail_ = (tail_ + 1) % size_;
+    if (size_ == capacity_) {          
+        Resize(capacity_ == 0 ? 1 : capacity_ * 2);
     }
-  }
-  data_[tail_] = val;
+    if (IsEmpty()) {          
+        head_ = 0;
+        tail_ = 0;
+    }
+    else {
+        tail_ = (tail_ + 1) % capacity_;      
+    }
+    data_[tail_] = val;      
+    ++size_;  
 }
-  
+
 QueueA::T& QueueA::Top() {
-  if (IsEmpty()) {
-    throw std::logic_error("QueueA - try get top form empty queue.");
-  }
-  return data_[head_];
+    if (IsEmpty()) {
+        throw std::logic_error("empty queue.");
+    }
+    return data_[head_];
 }
 
 const QueueA::T& QueueA::Top() const {
-  if (IsEmpty()) {
-    throw std::logic_error("QueueA - try get top form empty queue.");
-  }
-  return data_[head_];
+    if (IsEmpty()) {
+        throw std::logic_error("empty queue.");
+    }
+    return data_[head_];
+}
+void QueueA::Clear() noexcept {
+    delete[] data_;
+    data_ = nullptr;
+    size_ = 0;
+    head_ = -1;
+    tail_ = -1;
+    capacity_ = 0;
 }
 
-void QueueA::Clear() noexcept {
-    head_ = -1;
+void QueueA::Resize(const std::ptrdiff_t new_capacity) {
+    T* new_data = new T[new_capacity];
+
+    if (!IsEmpty()) {
+        if (head_ <= tail_) {              
+            std::copy(data_ + head_, data_ + tail_ + 1, new_data);
+        }
+        else {              
+            std::copy(data_ + head_, data_ + capacity_, new_data);
+            std::copy(data_, data_ + tail_ + 1, new_data + capacity_ - head_);
+        }
+    }
+
+    delete[] data_;      
+    data_ = new_data;      
+    capacity_ = new_capacity;  
 }
