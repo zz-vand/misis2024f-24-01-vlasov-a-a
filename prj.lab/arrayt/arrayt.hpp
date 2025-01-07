@@ -36,7 +36,7 @@ private:
 template <typename T>
 ArrayT<T>::ArrayT(const std::ptrdiff_t size) {
     if (size < 0) {
-        throw std::invalid_argument("size can't be negative");
+        throw std::invalid_argument();
     }
     if (size > 0) {
         ssize_ = size;
@@ -70,7 +70,7 @@ ArrayT<T>& ArrayT<T>::operator=(const ArrayT& arr) {
 template <typename T>
 T& ArrayT<T>::operator[](std::ptrdiff_t i) {
     if (i < 0 || i >= ssize_ || data_ == nullptr) {
-        throw std::out_of_range("array index out of range");
+        throw std::out_of_range();
     }
     return data_[i];
 }
@@ -78,7 +78,7 @@ T& ArrayT<T>::operator[](std::ptrdiff_t i) {
 template <typename T>
 const T& ArrayT<T>::operator[](std::ptrdiff_t i) const {
     if (i < 0 || i >= ssize_) {
-        throw std::out_of_range("array index out of range");
+        throw std::out_of_range();
     }
     return data_[i];
 }
@@ -96,7 +96,7 @@ std::ptrdiff_t ArrayT<T>::capacity() const noexcept {
 template <typename T>
 void ArrayT<T>::resize(const std::ptrdiff_t new_size) {
     if (new_size <= 0) {
-        throw std::invalid_argument("size should be positive");
+        throw std::invalid_argument();
     }
     if (new_size == ssize_) {
         return;
@@ -117,7 +117,7 @@ void ArrayT<T>::resize(const std::ptrdiff_t new_size) {
 template <typename T>
 void ArrayT<T>::insert(const std::ptrdiff_t i, const T value) {
     if (i < 0 || i > ssize_) {
-        throw std::out_of_range("index should be in range [0, size]");
+        throw std::out_of_range();
     }
     resize(ssize_ + 1);
     std::copy_backward(data_ + i, data_ + ssize_ - 1, data_ + ssize_);
@@ -127,7 +127,7 @@ void ArrayT<T>::insert(const std::ptrdiff_t i, const T value) {
 template <typename T>
 void ArrayT<T>::remove(const std::ptrdiff_t i) {
     if (i < 0 || i >= ssize_) {
-        throw std::out_of_range("array index out of range");
+        throw std::out_of_range();
     }
     std::copy(data_ + i + 1, data_ + ssize_, data_ + i);
     resize(ssize_ - 1);
