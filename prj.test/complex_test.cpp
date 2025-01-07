@@ -11,7 +11,7 @@ int main() {
 	std::cin >> a >> b;
 
 
-	bool sz = a == b;
+	bool sz = (a == b);
 	std::cout << a << " = " << b << ": " << sz << std::endl;
 
 	Complex sm = a + b;
@@ -26,8 +26,6 @@ int main() {
 
 	Complex delen = a / b;
 	std::cout << delen << std::endl;
-
-	std::cout << a.info() << std::endl;
 
 	return 0;
 
