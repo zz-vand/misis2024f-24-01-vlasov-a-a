@@ -53,16 +53,16 @@ struct Complex {
 
 
   //Унарный минус
-  [[nodiscard]] Complex operator-() const noexcept;
+   Complex operator-() const noexcept;
 
   //Унарный плюс
-  [[nodiscard]] Complex operator+() const noexcept;
+   Complex operator+() const noexcept;
 
   //Равенство комплексных чисел
-  [[nodiscard]] bool operator==(const Complex& rhs) const noexcept;
+   bool operator==(const Complex& rhs) const noexcept;
 
   //Неравенство комплексных чисел
-  [[nodiscard]] bool operator!=(const Complex& rhs) const noexcept;
+   bool operator!=(const Complex& rhs) const noexcept;
 
   // Присваивающее сложение с комплексным числом.
   Complex& operator+=(const Complex& rhs) noexcept;
@@ -109,35 +109,35 @@ inline std::ostream& operator<<(std::ostream& ostrm, const Complex& rhs)
 
 
 //Сложение комплексных чисел.
-[[nodiscard]] Complex operator+(const Complex& lhs, const Complex& rhs) noexcept;
+ Complex operator+(const Complex& lhs, const Complex& rhs) noexcept;
 
 // Сложение комплексного и вещественного чисел.
-[[nodiscard]] Complex operator+(const Complex& lhs, const double rhs) noexcept;
+ Complex operator+(const Complex& lhs, const double rhs) noexcept;
 
 //Сложение вещественного и комплексного чисел.
-[[nodiscard]] Complex operator+(const double lhs, const Complex& rhs) noexcept;
+ Complex operator+(const double lhs, const Complex& rhs) noexcept;
 
-[[nodiscard]] Complex operator-(const Complex& lhs, const Complex& rhs) noexcept;
-[[nodiscard]] Complex operator-(const Complex& lhs, const double rhs) noexcept;
-[[nodiscard]] Complex operator-(const double lhs, const Complex& rhs) noexcept;
+ Complex operator-(const Complex& lhs, const Complex& rhs) noexcept;
+ Complex operator-(const Complex& lhs, const double rhs) noexcept;
+ Complex operator-(const double lhs, const Complex& rhs) noexcept;
 
 //Умножение комплексного числа на комплексное.
-[[nodiscard]] Complex operator*(const Complex& lhs, const Complex& rhs) noexcept;
+ Complex operator*(const Complex& lhs, const Complex& rhs) noexcept;
 
 //Умножение комплексного числа на вещественное.
-[[nodiscard]] Complex operator*(const Complex& lhs, const double rhs) noexcept;
+ Complex operator*(const Complex& lhs, const double rhs) noexcept;
 
 //Умножение вещественного числа на комплексное.
-[[nodiscard]] Complex operator*(const double lhs, const Complex& rhs) noexcept;
+ Complex operator*(const double lhs, const Complex& rhs) noexcept;
 
 //Деление комплексного числа на комплексное.
-[[nodiscard]] Complex operator/(const Complex& lhs, const Complex& rhs);
+ Complex operator/(const Complex& lhs, const Complex& rhs);
 
 // Деление комплексного числа на вещественное.
-[[nodiscard]] Complex operator/(const Complex& lhs, const double rhs);
+ Complex operator/(const Complex& lhs, const double rhs);
 
 // Деление вещественного числа на комплексное.
-[[nodiscard]] Complex operator/(const double lhs, const Complex& rhs);
+ Complex operator/(const double lhs, const Complex& rhs);
 
 
 
