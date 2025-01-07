@@ -1,4 +1,4 @@
-#include <rational.hpp>
+#include <rational/rational.hpp>
 
 #include <iostream>
 #include <exception>
@@ -14,7 +14,7 @@ Rational::Rational(const int32_t num, const int32_t denom) {
         throw std::invalid_argument("division by zero");
     }
     num_ = num;
-    denom_ = denom ;
+    denom_ = denom;
     normalize();
 }
 
@@ -99,6 +99,7 @@ Rational& Rational::operator+=(const int32_t& rhs) noexcept {
 }
 Rational& Rational::operator-=(const int32_t& rhs) noexcept {
     num_ -= rhs * denom_;
+    normalize();
     return *this;
 }
 Rational& Rational::operator/=(const int32_t& rhs) {
