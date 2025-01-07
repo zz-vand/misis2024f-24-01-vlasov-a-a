@@ -1,10 +1,21 @@
 #pragma once
-#ifndef RATIONAL_RATIONAL_HPP
-#define RATIONAL_RATIONAL_HPP
+#ifndef RATIOANL_HPP_2024
+#define RATIONAL_HPP_2024
 
 #include <iosfwd>
 #include <cstdint>
 #include <numeric>
+
+namespace math {
+    inline int gcda(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}
 
 class Rational {
 public:
@@ -20,12 +31,12 @@ public:
     int32_t num() const noexcept { return num_; }
     int32_t denom() const noexcept { return denom_; }
 
-    bool operator==(const Rational& ) const noexcept;
-    bool operator!=(const Rational& ) const noexcept;
-    bool operator>(const Rational& ) const noexcept;
-    bool operator<(const Rational& ) const noexcept;
-    bool operator>=(const Rational& ) const noexcept;
-    bool operator<=(const Rational& ) const noexcept;
+    bool operator==(const Rational&) const noexcept;
+    bool operator!=(const Rational&) const noexcept;
+    bool operator>(const Rational&) const noexcept;
+    bool operator<(const Rational&) const noexcept;
+    bool operator>=(const Rational&) const noexcept;
+    bool operator<=(const Rational&) const noexcept;
 
     bool operator==(const int32_t&) const noexcept;
     bool operator!=(const int32_t&) const noexcept;
@@ -51,40 +62,40 @@ public:
     std::istream& readFrom(std::istream& istrm) noexcept;
     std::ostream& writeTo(std::ostream& ostrm) const noexcept;
 
-  private:
+private:
     int32_t num_ = 0;
     int32_t denom_ = 1;
     static const char separator = '/';
-  private:
+private:
     void normalize() noexcept {
         if (denom_ < 0) {
             denom_ = -denom_;
             num_ = -num_;
         }
-        int gcd = std::gcd(num_, denom_);
+        int gcd = math::gcda(num_, denom_);
         num_ /= gcd;
         denom_ /= gcd;
     };
 };
-    
-std::istream &operator>>(std::istream& istrm, Rational& rhs) noexcept;
 
-std::ostream &operator<<(std::ostream& ostrm, const Rational& rhs) noexcept;
+std::istream& operator>>(std::istream& istrm, Rational& rhs) noexcept;
+
+std::ostream& operator<<(std::ostream& ostrm, const Rational& rhs) noexcept;
 
 inline Rational operator+(const Rational& lhs, const Rational& rhs) noexcept {
-  return Rational(lhs) += rhs;
+    return Rational(lhs) += rhs;
 }
 
 inline Rational operator-(const Rational& lhs, const Rational& rhs) noexcept {
-  return Rational(lhs) -= rhs;
+    return Rational(lhs) -= rhs;
 }
 
 inline Rational operator/(const Rational& lhs, const Rational& rhs) {
-  return Rational(lhs) /= rhs;
+    return Rational(lhs) /= rhs;
 }
 
 inline Rational operator*(const Rational& lhs, const Rational& rhs) noexcept {
-  return Rational(lhs) *= rhs;
+    return Rational(lhs) *= rhs;
 }
 
 inline Rational operator+(const Rational& lhs, const int32_t& rhs) noexcept {
