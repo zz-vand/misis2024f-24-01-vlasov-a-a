@@ -20,3 +20,12 @@ TEST_CASE("[arrayd] - ArrayD insert") {
     arr.insert(1, 2.5);
     CHECK(arr[1] == 2.5);
 }
+
+TEST_CASE("[arrayd] - ArrayD resize") {
+    ArrayD arr(10);
+    arr.resize(8);
+    CHECK(arr.ssize() == 8);
+    arr.resize(8);
+    CHECK(arr.ssize() == 8);
+
+}
