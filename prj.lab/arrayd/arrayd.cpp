@@ -1,4 +1,4 @@
-#include <arrayd.hpp>
+#include <arrayd/arrayd.hpp>
 
 #include <stdexcept>
 #include <algorithm>
